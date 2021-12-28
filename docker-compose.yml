@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    entrypoint: ["node", "dist/main.js"]
+    env_file: .env
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 10.33.33.0/24
+      driver: default
+      name: dsb_app_net
